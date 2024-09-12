@@ -1,69 +1,49 @@
-import { useState } from 'react';
-import Banner from './componentes/Banner';
-import Formulario from './componentes/Formulario';
-import Time from './componentes/Time';
+import { useEffect, useState } from "react";
+import Banner from "./componentes/Banner";
+import Card from "./componentes/Card";
+import ProfileCard from "./componentes/ProfileCard";
 
 function App() {
+  const [barbie, setBarbie] = useState([]);
+  const [busca, setBusca] = useState('');
 
-  const times = [
-    {
-      nome: 'Programação',
-      corPrimaria: '#57C278',
-      corSecundaria: '#D9F7E9'
-    },
-    {
-      nome: 'Front-End',
-      corPrimaria: '#82CFFA',
-      corSecundaria: '#E8F8FF'
-    },
-    {
-      nome: 'Data Science',
-      corPrimaria: '#A6D157',
-      corSecundaria: '#F0F8E2'
-    },
-    {
-      nome: 'Devops',
-      corPrimaria: '#E06B69',
-      corSecundaria: '#FDE7E8'
-    },
-    {
-      nome: 'UX e Design',
-      corPrimaria: '#DB6EBF',
-      corSecundaria: '#FAE9F5'
-    },
-    {
-      nome: 'Mobile',
-      corPrimaria: '#FFBA05',
-      corSecundaria: '#FFF5D9'
-    },
-    {
-      nome: 'Inovação e Gestão',
-      corPrimaria: '#FF8A29',
-      corSecundaria: '#FFEEDF'
+  useEffect(() => {
+    fetch("http://localhost:3000/barbie")
+      .then((resposta) => resposta.json())
+      .then((data) => {
+        setBarbie(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (busca) {
+      fetch("http://localhost:3001/barbie?id=" + busca)
+        .then((resposta) => resposta.json())
+        .then((data) => setBusca(data));
     }
-  ]
-
-  const [colaboradores, setColaboradores] = useState([])
-
-  const aoNovoColaboradorAdicionado = (colaborador) => {
-    debugger
-    setColaboradores([...colaboradores, colaborador])
-  }
+  }, [busca]);
 
   return (
     <div className="App">
       <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
+      <input
+        placeholder="Busque a barbie"
+        onChange={(evento) => {
+          setBusca(evento.target.value);
+        }}
+      />
 
-      {times.map(time => <Time 
-        key={time.nome} 
-        nome={time.nome} 
-        corPrimaria={time.corPrimaria} 
-        corSecundaria={time.corSecundaria} 
-        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-      />)}   
-
+      <div>
+        {barbie.map((barbies) => (
+          <div key={barbies.id}>
+            <h4>{barbies.name}</h4>
+            <h5>{barbies.favorite_color}, {barbies.id}</h5>
+          </div>
+        ))}
+      </div>
+      <ProfileCard/>
     </div>
+    
   );
 }
 

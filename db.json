@@ -1,0 +1,60 @@
+{
+  "barbie": [
+    {
+      "id": "1a2b3c",
+      "name": "Barbie Dreamhouse",
+      "favorite_color": "Pink",
+      "age": 25,
+      "bio": "Barbie loves designing dream homes and creating spaces full of joy.",
+      "location": "Malibu, USA"
+    },
+    {
+      "id": "4d5e6f",
+      "name": "Barbie Mermaid",
+      "favorite_color": "Turquoise",
+      "age": 22,
+      "bio": "As a mermaid, Barbie enjoys exploring the ocean and making friends with sea creatures.",
+      "location": "Atlantis, Ocean"
+    },
+    {
+      "id": "7g8h9i",
+      "name": "Barbie Rockstar",
+      "favorite_color": "Purple",
+      "age": 28,
+      "bio": "Barbie performs concerts worldwide, spreading love and music to all her fans.",
+      "location": "Los Angeles, USA"
+    },
+    {
+      "id": "0j1k2l",
+      "name": "sabrina",
+      "favorite_color": "White",
+      "age": 30,
+      "bio": "",
+      "location": "Cambridge, UK"
+    },
+    {
+      "id": "3m4n5o",
+      "name": " Chef",
+      "favorite_color": "Red",
+      "age": 35,
+      "bio": "Barbie Chef creates delicious meals and loves hosting cooking classes for her friends.",
+      "location": "Paris, France"
+    },
+    {
+      "id": "6p7q8r",
+      "name": "corre",
+      "favorite_color": "Blue",
+      "age": 27,
+      "bio": "",
+      "location": "Sydney, Australia"
+    },
+    {
+      "id": "9s0t1u",
+      "name": "Barbie Fashionista",
+      "favorite_color": "Yellow",
+      "age": 26,
+      "bio": "Barbie Fashionista is a style icon, always creating new trends and inspiring others.",
+      "location": "Milan, Italy"
+    }
+  ]
+}
